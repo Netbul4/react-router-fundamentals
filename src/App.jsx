@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -34,6 +34,10 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+      </nav>
         <Routes>
           <Route path="/" element={<h1>Home</h1>} />
           <Route path="/about" element={<About />} />
