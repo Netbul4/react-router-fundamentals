@@ -9,6 +9,7 @@ export function Menu() {
         <Link to="/acerca">Acerca de</Link>
         <Link to="/contact">Contact </Link>
         <Link to="/products">Products </Link>
+        <Link to="/services">Services </Link>
         <Link to="/unexist">Error 404 </Link>
       </nav>
       <nav className="menu">

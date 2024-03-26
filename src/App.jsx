@@ -9,6 +9,7 @@ import { Error404 } from "./pages/Error404";
 import { Products } from "./pages/Products";
 import { ProductDetail } from "./pages/ProductDetail";
 import { useState } from "react";
+import { Services } from "./pages/Services";
 
 function App() {
   const [products, setProducts] = useState([
@@ -33,6 +34,20 @@ function App() {
             path="/products/:id"
             element={<ProductDetail products={products} />}
           />
+          <Route path="/services" element={<Services />}>
+            <Route
+              index
+              element={<h2>This is the home of services route.</h2>}
+            />
+            <Route
+              path="/services/guarantee"
+              element={<h2>This is the guarantee site.</h2>}
+            />
+            <Route
+              path="/services/list"
+              element={<h2>This is our services list.</h2>}
+            />
+          </Route>
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
