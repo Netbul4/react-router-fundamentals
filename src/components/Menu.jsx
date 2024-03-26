@@ -8,6 +8,7 @@ export function Menu() {
         <Link to="/about">About</Link>
         <Link to="/acerca">Acerca de</Link>
         <Link to="/contact">Contact </Link>
+        <Link to="/products">Products </Link>
         <Link to="/unexist">Error 404 </Link>
       </nav>
       <nav className="menu">
@@ -28,6 +29,12 @@ export function Menu() {
           to="/contact"
         >
           Contact{" "}
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active-link" : null)}
+          to="/products"
+        >
+          Products{" "}
         </NavLink>
       </nav>
     </>
