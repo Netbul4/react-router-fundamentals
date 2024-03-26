@@ -7,6 +7,7 @@ import { Header } from "./components/Header";
 import { Menu } from "./components/Menu";
 import { Error404 } from "./pages/Error404";
 import { Products } from "./pages/Products";
+import { ProductDetail } from "./pages/ProductDetail";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/acerca" element={<Navigate to="/about"></Navigate>} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
