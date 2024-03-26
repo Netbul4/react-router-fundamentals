@@ -8,8 +8,16 @@ import { Menu } from "./components/Menu";
 import { Error404 } from "./pages/Error404";
 import { Products } from "./pages/Products";
 import { ProductDetail } from "./pages/ProductDetail";
+import { useState } from "react";
 
 function App() {
+  const [products, setProducts] = useState([
+    { id: 1, name: "Beer", price: "$2" },
+    { id: 2, name: "Cigarrettes", price: "$1" },
+    { id: 3, name: "Run", price: "$5" },
+    { id: 4, name: "Whiskey", price: "$7" },
+  ]);
+
   return (
     <>
       <Header />
@@ -20,8 +28,11 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/acerca" element={<Navigate to="/about"></Navigate>} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/products" element={<Products products={products} />} />
+          <Route
+            path="/products/:id"
+            element={<ProductDetail products={products} />}
+          />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>

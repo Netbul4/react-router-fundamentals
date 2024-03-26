@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function Products() {
-  const products = [
-    { id: 1, name: "Beer", price: "$2" },
-    { id: 2, name: "Cigarrettes", price: "$1" },
-    { id: 3, name: "Run", price: "$5" },
-    { id: 4, name: "Whiskey", price: "$7" },
-  ];
-
+export function Products({ products }) {
   return (
     <section>
       <h1>Products</h1>
