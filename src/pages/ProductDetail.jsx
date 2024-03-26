@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export function ProductDetail() {
   function getProduct(id) {
@@ -11,6 +11,12 @@ export function ProductDetail() {
 
     return products.find((product) => product.id.toString() === id);
   }
+
+  function handleBack(){
+    navigate(-1);
+  }
+  
+  const navigate = useNavigate();
   const { id } = useParams();
   const product = getProduct(id);
 
@@ -19,6 +25,7 @@ export function ProductDetail() {
       <h1>Product Details</h1>
       <h2>{product.name}</h2>
       <h3>Price: {product.price}</h3>
+      <button onClick={handleBack}>Go back</button>
     </section>
   );
 }
