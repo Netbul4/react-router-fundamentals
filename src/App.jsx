@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
@@ -34,8 +34,8 @@ function App() {
   return (
     <>
       <Header />
-      <BrowserRouter>
-        <Menu />
+      <HashRouter>
+      <Menu />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -63,7 +63,7 @@ function App() {
             <Route path="politics" element={<ServicePolitics />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
