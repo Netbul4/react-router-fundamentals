@@ -14,6 +14,7 @@ import { ServiceWarranty } from "./pages/ServicesWarranty";
 import { ServiceList } from "./pages/ServicesList";
 import { ServicesHome } from "./pages/ServicesHome";
 import { ServicePolitics } from "./pages/ServicesPolitics";
+import { ServiceDetail } from "./pages/ServicesDetail";
 
 function App() {
   const [products, setProducts] = useState([
@@ -21,6 +22,13 @@ function App() {
     { id: 2, name: "Cigarrettes", price: "$1" },
     { id: 3, name: "Run", price: "$5" },
     { id: 4, name: "Whiskey", price: "$7" },
+  ]);
+
+  const [services, setServices] = useState([
+    { id: 1, name: "Website design", price: "$500" },
+    { id: 2, name: "System development", price: "$6000" },
+    { id: 3, name: "App development", price: "$10000" },
+    { id: 4, name: "UI design", price: "$800" },
   ]);
 
   return (
@@ -39,23 +47,20 @@ function App() {
             element={<ProductDetail products={products} />}
           />
           <Route path="/services" element={<Services />}>
+            <Route index element={<ServicesHome />} />
+            <Route path="warranty" element={<ServiceWarranty />} />
+            <Route path="list" element={<ServiceList services={services} />} />
             <Route
-              index
-              element={<ServicesHome/>}
-            />
-            <Route
-              path="warranty"
-              element={<ServiceWarranty/>}
-            />
-            <Route
-              path="list"
-              element={<ServiceList/>}
-            />
-            <Route
-              path="politics"
-              element={<ServicePolitics/>}
+              path=":id"
+              element={
+                <>
+                  <ServiceList services={services}/>
+                  <ServiceDetail services={services}/>
+                </>
+              }
             />
           </Route>
+            <Route path="politics" element={<ServicePolitics />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
