@@ -10,6 +10,10 @@ import { Products } from "./pages/Products";
 import { ProductDetail } from "./pages/ProductDetail";
 import { useState } from "react";
 import { Services } from "./pages/Services";
+import { ServiceWarranty } from "./pages/ServicesWarranty";
+import { ServiceList } from "./pages/ServicesList";
+import { ServicesHome } from "./pages/ServicesHome";
+import { ServicePolitics } from "./pages/ServicesPolitics";
 
 function App() {
   const [products, setProducts] = useState([
@@ -37,15 +41,19 @@ function App() {
           <Route path="/services" element={<Services />}>
             <Route
               index
-              element={<h2>This is the home of services route.</h2>}
+              element={<ServicesHome/>}
             />
             <Route
-              path="/services/guarantee"
-              element={<h2>This is the guarantee site.</h2>}
+              path="warranty"
+              element={<ServiceWarranty/>}
             />
             <Route
-              path="/services/list"
-              element={<h2>This is our services list.</h2>}
+              path="list"
+              element={<ServiceList/>}
+            />
+            <Route
+              path="politics"
+              element={<ServicePolitics/>}
             />
           </Route>
           <Route path="*" element={<Error404 />} />
